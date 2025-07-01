@@ -1,0 +1,136 @@
+.warna1{
+    background-color:#2F5249;
+}
+
+.warna2 {
+    background-color: #437057;
+}
+
+.warna3{
+    background-color: #97B067;
+}
+
+.warna4{
+    background-color: #E3DE61;
+}
+
+.banner{
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../image/banner.jpg');
+}
+
+.highlighted-cathegory{
+    height: 250px;
+}
+
+.kategori-teh-melati {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../image/teh\ melati.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.kategori-teh-mawar {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../image/teh\ mawar.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.kategori-teh-lemon {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../image/teh\ lemon.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.no-decoration {
+    text-decoration: none;
+    color: white;
+}
+
+.no-decoration:hover {
+    color: #97B067;
+}
+
+.text-harga {
+    font-size: 20px;
+    color: #437057;
+}
+
+.image-box {
+    height: 200px;
+}
+
+.image-box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.content-subscribe{
+    background-color: #2F5249;
+}
+
+.btn-primary {
+  background-color: #437057 !important;
+  border-color: #437057 !important;
+  color: #ffffff !important; /* warna teks tombol */
+}
+
+.btn-primary:hover {
+  background-color: #365c49 !important; /* versi lebih gelap untuk efek hover */
+  border-color: #365c49 !important;
+}
+
+.body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.h1, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.banner h1 {
+  font-size: 80px;
+}
+
+.content-subscribe a {
+    color:#ffffff;
+}
+
+.banner-produk {
+    height: 30vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../image/banner.jpg');
+    background-position: 30% 20%;
+}
+
+.list-group a {
+    text-decoration: none;
+}
+
+.produk-terkait-image{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px; 
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-detail {
+    width: 120px;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    background-color: #437057 !important;
+    border-color: #437057 !important;
+    color: #ffffff !important; /* warna teks tombol */
+}
+.btn-detail:hover {
+    background-color: #365c49 !important; /* versi lebih gelap untuk efek hover */
+    border-color: #365c49 !important;
+}

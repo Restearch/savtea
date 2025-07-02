@@ -73,9 +73,7 @@
                 </div>
                 <div>
                     <label for="detail">Detail</label>
-                    <textarea name="detai" id="detail" cols="30" rows="10" class="form-control">
-                        <?php echo $data['detail']; ?>
-                    </textarea>
+                    <textarea name="detail" id="detail" cols="30" rows="10" class="form-control"><?php echo $data['detail']; ?></textarea>
                 </div>
                 <div>
                     <label for="ketersediaan_stok">Ketersediaan Stok</label>

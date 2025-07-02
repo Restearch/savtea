@@ -107,12 +107,13 @@
     text-decoration: none;
 }
 
-.produk-terkait-image{
-    height: 100px;
-    width: 100px;
+.produk-terkait-img {
+    width: 100%;
+    max-width: 180px;  /* Biar tidak terlalu lebar */
+    height: 140px;     /* Lebih kecil dari sebelumnya */
     object-fit: cover;
-    object-position: center;
-    border-radius: 10px; 
+    border-radius: 10px;
+    margin: 0 auto;     /* Supaya gambarnya center */
 }
 
 .card-body {
@@ -133,4 +134,10 @@
 .btn-detail:hover {
     background-color: #365c49 !important; /* versi lebih gelap untuk efek hover */
     border-color: #365c49 !important;
+}
+
+.card {
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }

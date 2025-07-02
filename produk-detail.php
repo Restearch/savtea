@@ -52,19 +52,25 @@
 
     <!-- produk terkait -->
     <div class="container-fluid py-5 warna2">
-        <div class="container">
-            <h2 class="text-center text-white mb-5">Produk Terkait</h2>
-
-            <div class="row">
+    <div class="container">
+        <h2 class="text-center text-white mb-5">Produk Terkait</h2>
+        <div class="row">
             <?php while($data = mysqli_fetch_array($queryProdukTerkait)) { ?>
-                <div class="col-md-6 col-lg-3 mb-3">
-                <a href="produk-detail.php?nama=<?php echo $data['nama']; ?>">
-                    <img src="image/<?php echo $data['foto']; ?>" class="img-fluid img-thumbnail" alt="">
-                </a>
-            </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <a href="produk-detail.php?nama=<?php echo $data['nama']; ?>">
+                            <img src="image/<?php echo $data['foto']; ?>" class="produk-terkait-img card" alt="">
+                        </a>
+                        <div class="card text-center p-2">
+                            <h6 class="card-title mb-0" style="font-size: 14px;"><?php echo $data['nama']; ?></h6>
+                        </div>
+                    </div>
+                </div>
             <?php } ?>
         </div>
     </div>
+</div>
+
  </div>
 
     <?php require "footer.php"; ?>

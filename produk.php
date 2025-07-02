@@ -1,24 +1,30 @@
 <?php
-    require "koneksi.php";
+require "koneksi.php";
 
-    $queryKategori=mysqli_query($con, "SELECT * FROM kategori");
+$queryKategori = mysqli_query($con, "SELECT * FROM kategori");
 
-    if(isset($_GET['keyword'])){
-        $queryProduk = mysqli_query($con, "SELECT * FROM produk WHERE nama LIKE '%$_GET[keyword]%'");
-    }
-    
-    else if(isset($_GET['kategori'])){
-        $queryGetKategoriId = mysqli_query($con, "SELECT id FROM kategori WHERE nama='$_GET[kategori]'");
-        $kategoriId = mysqli_fetch_array($queryGetKategoriId);
+if (isset($_GET['keyword'])) {
+    $keyword = mysqli_real_escape_string($con, $_GET['keyword']);
+    $keyword = strtolower($keyword); // untuk pencarian tidak sensitif huruf besar/kecil
 
-        $queryProduk = mysqli_query($con, "SELECT * FROM produk WHERE kategori_id='$kategoriId[id]'");
-    }
-    
-    else{
-        $queryProduk = mysqli_query($con, "SELECT * FROM produk");
-    }
+    $queryProduk = mysqli_query($con, 
+        "SELECT produk.* FROM produk 
+        JOIN kategori ON produk.kategori_id = kategori.id 
+        WHERE LOWER(produk.nama) LIKE '%$keyword%' 
+        OR LOWER(kategori.nama) LIKE '%$keyword%'"
+    );
 
-    $countData = mysqli_num_rows($queryProduk);
+} else if (isset($_GET['kategori'])) {
+    $kategori = mysqli_real_escape_string($con, $_GET['kategori']);
+    $queryGetKategoriId = mysqli_query($con, "SELECT id FROM kategori WHERE nama='$kategori'");
+    $kategoriId = mysqli_fetch_array($queryGetKategoriId);
+    $queryProduk = mysqli_query($con, "SELECT * FROM produk WHERE kategori_id='$kategoriId[id]'");
+
+} else {
+    $queryProduk = mysqli_query($con, "SELECT * FROM produk");
+}
+
+$countData = mysqli_num_rows($queryProduk);
 ?>
 
 <!DOCTYPE html>
@@ -63,34 +69,36 @@
                         <?php
                             }
                         ?>
-
-                        <div class="row mt-5">
-                    <?php while($produk = mysqli_fetch_array($queryProduk)) { ?>
-                        <div class="col-sm-6 col-md-4 mb-3">
-                            <div class="card h-100">
-                                <div class="image-box">
-                                    <img src="image/<?php echo $produk['foto']; ?>" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body d-flex flex-column">
-                                    <h4 class="card-title"><?php echo $produk['nama']; ?></h4>
-                                    <p class="card-text">
-                                        <?php echo substr($produk['detail'], 0, 100) . '...'; ?>
-                                    </p>
-                                    <p class="card-text text-harga">
-                                        Rp <?php echo number_format($produk['harga'], 0, ',', '.'); ?>
-                                    </p>
-                                    <a href="produk-detail.php?nama=<?php echo $produk['nama']; ?>" class="btn btn-success mt-auto btn-detail">Lihat Detail</a>
+                <div class="container py-5">
+                    <div class="row mt-5">
+                        <?php while($produk = mysqli_fetch_array($queryProduk)) { ?>
+                            <div class="col-sm-6 col-md-4 mb-3">
+                                <div class="card h-100">
+                                    <div class="image-box">
+                                        <img src="image/<?php echo $produk['foto']; ?>" class="card-img-top" alt="...">
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title"><?php echo $produk['nama']; ?></h4>
+                                        <p class="card-text">
+                                            <?php echo substr($produk['detail'], 0, 100) . '...'; ?>
+                                        </p>
+                                        <p class="card-text text-harga">
+                                            Rp <?php echo number_format($produk['harga'], 0, ',', '.'); ?>
+                                        </p>
+                                        <div class="d-flex justify-content-center mt-auto">
+                                            <a href="produk-detail.php?nama=<?php echo $produk['nama']; ?>" 
+                                            class="btn btn-success btn-detail">Lihat Detail</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
+                        <?php } ?>
+                    </div>
                 </div>
-             </div>
-         </div>
-     </div>
- </div>
-    
-<?php require "footer.php"; ?>
+            </div>
+        </div>
+    </div>
+    <?php require "footer.php"; ?>
 
     <script src="bootsrap/js/bootstrap.bundle.min.js"></script>
     <script src="fontawesome/js/all.min.js"></script>

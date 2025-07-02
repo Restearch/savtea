@@ -6,7 +6,7 @@
             <a href="https://facebook.com"><i class="fab fa-facebook fs-4 mx-2"></i></a>
             <a href="https://www.instagram.com/p/DLkPThexTTe/?igsh=ZG1jbGg0OTg4b3h6"><i class="fab fa-instagram fs-4 mx-2"></i></a>
             <a href="https://twitter.com"><i class="fab fa-twitter fs-4 mx-2"></i></a>
-            <a href="http://wa.me/6287722858582"><i class="fab fa-whatsapp fs-4 mx-2"></i></a>
+            <a href="http://www.whatsapp.com"><i class="fab fa-whatsapp fs-4 mx-2"></i></a>
         </div>
     </div>
 </div>
